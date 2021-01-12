@@ -1,0 +1,6 @@
+framework module Pods_ParentingSNS {
+  umbrella header "Pods-ParentingSNS-umbrella.h"
+
+  export *
+  module * { export * }
+}
