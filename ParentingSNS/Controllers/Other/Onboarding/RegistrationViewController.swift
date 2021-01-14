@@ -60,7 +60,7 @@ class RegistrationViewController: UIViewController {
         button.setTitle("Sign Up", for: .normal)
         button.layer.masksToBounds = true
         button.layer.cornerRadius = Constants.cornerRadius
-        button.backgroundColor = .systemBlue
+        button.backgroundColor = .systemGreen
         button.setTitleColor(.white, for: .normal)
         return button
     }()
@@ -119,12 +119,10 @@ class RegistrationViewController: UIViewController {
 extension RegistrationViewController: UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == usernameField {
-            usernameField.becomeFirstResponder()
-        }else if textField == usernameField {
             emailField.becomeFirstResponder()
-        }else if textField == emailField{
+        } else if textField == emailField{
             passwordField.becomeFirstResponder()
-        }else{
+        } else {
             didTapRegister()
         }
         return true

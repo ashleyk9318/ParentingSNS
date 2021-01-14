@@ -52,7 +52,7 @@ public class AuthManager {
         }
     }
     
-    public func loginUser(username: String?, email: String?, password: String, completion: @escaping (Bool) -> Void) {
+    public func loginUser(username: String?, email: String?, password: String, completion: @escaping (Bool) -> Void) { // use of completion inside another closure -> scope escaping
         if let email = email {
             // email log in
             Auth.auth().signIn(withEmail: email, password: password) {authResult, error in
@@ -66,6 +66,20 @@ public class AuthManager {
         else if let username = username {
             // username log in
             print(username)
+        }
+    }
+    
+    /// Attempt to log out firebase user
+    public func logOut(completion: (Bool) -> Void) {
+        do {
+            try Auth.auth().signOut()
+            completion(true)
+            return
+        }
+        catch {
+            print(error)
+            completion(false)
+            return
         }
     }
 }
