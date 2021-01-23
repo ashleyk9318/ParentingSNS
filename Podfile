@@ -6,8 +6,11 @@ target 'ParentingSNS' do
   use_frameworks!
 
 pod 'Appirater'
+pod 'SDWebImage'
 
-  # Pods for ParentingSNS
+
+
+# Pods for ParentingSNS
 
 #Firebase
 
