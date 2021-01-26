@@ -13,7 +13,7 @@ public class AuthManager {
     
     // MARK: - Public
     
-    public func registerNewUser(username: String, email: String, password: String, completion: @escaping (Bool) -> Void) {
+    public func registerNewUser(firstName: String, lastName: String, username: String, email: String, password: String, completion: @escaping (Bool) -> Void) {
         /*
          - check if username is available
          - check if email is available
