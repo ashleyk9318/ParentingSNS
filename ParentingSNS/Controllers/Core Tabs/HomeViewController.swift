@@ -7,12 +7,28 @@
 import FirebaseAuth
 import UIKit
 
+struct HomeFeedRenderViewModel {
+    let header: PostRenderViewModel
+    let post: PostRenderViewModel
+    let actions: PostRenderViewModel
+    let comments: PostRenderViewModel
+}
+
 class HomeViewController: UIViewController {
+    
+    private var feedRenderModels = [HomeFeedRenderViewModel]()
     
     private let tableView: UITableView = {
         let tableView = UITableView()
+        // Register cells
         tableView.register(FeedPostTableViewCell.self,
                            forCellReuseIdentifier: FeedPostTableViewCell.identifier)
+        tableView.register(FeedPostHeaderTableViewCell.self,
+                           forCellReuseIdentifier: FeedPostHeaderTableViewCell.identifier)
+        tableView.register(FeedPostActionTableViewCell.self,
+                           forCellReuseIdentifier: FeedPostActionTableViewCell.identifier)
+        tableView.register(FeedPostGeneralTableViewCell.self,
+                           forCellReuseIdentifier: FeedPostGeneralTableViewCell.identifier)
         return tableView
     }()
 
@@ -32,12 +48,12 @@ class HomeViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         handleNotAuthenticated()
-        do {
-            try Auth.auth().signOut()
-        }
-        catch {
-            print("Failed to sign out")
-        }
+//        do {
+//            try Auth.auth().signOut()
+//        }
+//        catch {
+//            print("Failed to sign out")
+//        }
     }
     
     private func handleNotAuthenticated() {        
@@ -54,6 +70,10 @@ class HomeViewController: UIViewController {
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 0
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 0
     }
