@@ -39,11 +39,21 @@ class ProfileTabsCollectionReusableView: UICollectionReusableView {
         return button
     }()
     
+    private let postLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Posts"
+        label.font = UIFont(name: "CircularStd-Black", size: 14)
+        label.textColor = .label
+//        label.numberOfLines = 0 // line wrap
+        return label
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .systemBackground
         addSubview(gridButton)
         addSubview(taggedButton)
+        addSubview(postLabel)
         
         gridButton.addTarget(self,
                              action: #selector(didTapGridButton),
@@ -72,14 +82,21 @@ class ProfileTabsCollectionReusableView: UICollectionReusableView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        let size = height - (Constants.padding * 2)
-        let girdButtonX = ((width / 2) - size) / 2
+        let size = CGFloat(20)
+        let buttonX = width - 24 - size*2
+//        let size = height - (Constants.padding * 2)
+//        let girdButtonX = ((width / 2) - size) / 2
         
-        gridButton.frame = CGRect(x: girdButtonX,
+        postLabel.frame = CGRect(x: 24,
+                                  y: Constants.padding,
+                                  width: 50,
+                                  height: size)
+        
+        gridButton.frame = CGRect(x: buttonX,
                                   y: Constants.padding,
                                   width: size,
                                   height: size)
-        taggedButton.frame = CGRect(x: girdButtonX + (width / 2),
+        taggedButton.frame = CGRect(x: gridButton.right + 8,
                                     y: Constants.padding,
                                     width: size,
                                     height: size)

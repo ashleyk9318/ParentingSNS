@@ -99,8 +99,28 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
         
         // get the model and open post controller
 //        let model = userPosts[indexPath.row]
-        let vc = PostViewController(model: nil)
-        vc.title = "Post"
+        let user = User(username: "Kris",
+                        bio: "",
+                        name: (first: "", last: ""),
+                        profilePhoto: URL(string: "https://www.google.com")!,
+                        birthDate: Date(),
+                        gender: .female,
+                        counts: UserCount(followers: 1, following: 1, posts: 1),
+                        joinDate: Date())
+        
+        let post = UserPost(identifier: "",
+                            postType: .photo,
+                            thumbnailImage: URL(string: "https://www.google.com")!,
+                            postURL: URL(string: "https://www.google.com")!,
+                            caption: nil,
+                            likeCount: [],
+                            comments: [],
+                            createdDate: Date(),
+                            taggedUsers: [],
+                            owner: user)
+        
+        let vc = PostViewController(model: post)
+        vc.title = post.postType.rawValue
         vc.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(vc, animated: true)
     }
@@ -115,15 +135,15 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
         if indexPath.section == 1 {
             // tabs header
             let tabControlHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
-                                                                         withReuseIdentifier: ProfileTabsCollectionReusableView.identifier,
-                                                                         for: indexPath) as! ProfileTabsCollectionReusableView
+                                                                                   withReuseIdentifier: ProfileTabsCollectionReusableView.identifier,
+                                                                                   for: indexPath) as! ProfileTabsCollectionReusableView
             tabControlHeader.delegate = self
             return tabControlHeader
         }
         
         let profileHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
-                                                                     withReuseIdentifier: ProfileInfoHeaderCollectionReusableView.identifier,
-                                                                     for: indexPath) as! ProfileInfoHeaderCollectionReusableView
+                                                                            withReuseIdentifier: ProfileInfoHeaderCollectionReusableView.identifier,
+                                                                            for: indexPath) as! ProfileInfoHeaderCollectionReusableView
         profileHeader.delegate = self
         return profileHeader
     }
@@ -132,7 +152,8 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
         
         if section == 0 {
             return CGSize(width: collectionView.width,
-                          height: collectionView.height / 3)
+//                          height: collectionView.height / 3
+                          height: collectionView.height / 2)
         }
         
         // size of section tabs

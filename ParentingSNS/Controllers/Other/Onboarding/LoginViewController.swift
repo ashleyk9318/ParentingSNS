@@ -261,7 +261,7 @@ class LoginViewController: UIViewController {
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
 //        present(UINavigationController(rootViewController: vc), animated: true)
-//        navigationController?.pushViewController(vc, animated: true)
+        navigationController?.pushViewController(vc, animated: true)
     }
 
 }

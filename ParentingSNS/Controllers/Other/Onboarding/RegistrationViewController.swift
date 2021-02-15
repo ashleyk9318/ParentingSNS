@@ -30,23 +30,32 @@ class RegistrationViewController: UIViewController {
         return label
     }()
     
-    private let firstNameLabel: UILabel = {
+    private let nameLabel: UILabel = {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
-        label.text = "First Name"
+        label.text = "Full Name"
         label.textColor = .systemGray
         label.font = UIFont(name: "CircularStd-Black", size: 12)
         
         return label
     }()
     
-    private let lastNameLabel: UILabel = {
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
-        label.text = "Last Name"
-        label.textColor = .systemGray
-        label.font = UIFont(name: "CircularStd-Black", size: 12)
-        
-        return label
-    }()
+//    private let firstNameLabel: UILabel = {
+//        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
+//        label.text = "First Name"
+//        label.textColor = .systemGray
+//        label.font = UIFont(name: "CircularStd-Black", size: 12)
+//
+//        return label
+//    }()
+//
+//    private let lastNameLabel: UILabel = {
+//        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
+//        label.text = "Last Name"
+//        label.textColor = .systemGray
+//        label.font = UIFont(name: "CircularStd-Black", size: 12)
+//
+//        return label
+//    }()
     
     private let usernameLabel: UILabel = {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
@@ -88,6 +97,7 @@ class RegistrationViewController: UIViewController {
     
     private let agreeLabel: UILabel = {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
+        label.numberOfLines = 2
         label.text = "By signing up you accept the Terms of Services and \nPrivacy Policy"
         label.font = UIFont(name: "CircularStd-Black", size: 12)
         
@@ -118,9 +128,9 @@ class RegistrationViewController: UIViewController {
         return field
     }()
     
-    private let firstNameField: UITextField = {
+    private let nameField: UITextField = {
         let field =  UITextField()
-        field.placeholder = "First Name"
+        field.placeholder = "Full Name"
         field.returnKeyType = .next
         field.leftViewMode = .always
         field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
@@ -134,21 +144,37 @@ class RegistrationViewController: UIViewController {
         return field
     }()
     
-    private let lastNameField: UITextField = {
-        let field =  UITextField()
-        field.placeholder = "Last Name"
-        field.returnKeyType = .next
-        field.leftViewMode = .always
-        field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
-        field.autocapitalizationType = .none
-        field.autocorrectionType = .no
-        field.layer.masksToBounds = true
+//    private let firstNameField: UITextField = {
+//        let field =  UITextField()
+//        field.placeholder = "First Name"
+//        field.returnKeyType = .next
+//        field.leftViewMode = .always
+//        field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
+//        field.autocapitalizationType = .none
+//        field.autocorrectionType = .no
+//        field.layer.masksToBounds = true
 //        field.layer.cornerRadius = Constants.cornerRadius
-//        field.backgroundColor = .secondarySystemBackground
-//        field.layer.borderWidth = 1.0
-//        field.layer.borderColor = UIColor.secondaryLabel.cgColor
-        return field
-    }()
+////        field.backgroundColor = .secondarySystemBackground
+////        field.layer.borderWidth = 1.0
+////        field.layer.borderColor = UIColor.secondaryLabel.cgColor
+//        return field
+//    }()
+//
+//    private let lastNameField: UITextField = {
+//        let field =  UITextField()
+//        field.placeholder = "Last Name"
+//        field.returnKeyType = .next
+//        field.leftViewMode = .always
+//        field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
+//        field.autocapitalizationType = .none
+//        field.autocorrectionType = .no
+//        field.layer.masksToBounds = true
+////        field.layer.cornerRadius = Constants.cornerRadius
+////        field.backgroundColor = .secondarySystemBackground
+////        field.layer.borderWidth = 1.0
+////        field.layer.borderColor = UIColor.secondaryLabel.cgColor
+//        return field
+//    }()
     
     private let usernameField: UITextField = {
         let field =  UITextField()
@@ -229,18 +255,32 @@ class RegistrationViewController: UIViewController {
         
         emailField.delegate = self
         usernameField.delegate = self
-        firstNameField.delegate = self
-        lastNameField.delegate = self
+        nameField.delegate = self
+//        firstNameField.delegate = self
+//        lastNameField.delegate = self
         passwordField.delegate = self
         confirmField.delegate = self
         
+        addSubviews()
+        addButtonActions()
+        
+        view.backgroundColor = .systemBackground
+        // Do any additional setup after loading the view.
+        
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(didTapCheckbox))
+        checkbox.addGestureRecognizer(gesture)
+    }
+    
+    private func addSubviews() {
         view.addSubview(createAccount)
         view.addSubview(emailLabel)
         view.addSubview(emailField)
-        view.addSubview(firstNameLabel)
-        view.addSubview(firstNameField)
-        view.addSubview(lastNameLabel)
-        view.addSubview(lastNameField)
+        view.addSubview(nameLabel)
+        view.addSubview(nameField)
+//        view.addSubview(firstNameLabel)
+//        view.addSubview(firstNameField)
+//        view.addSubview(lastNameLabel)
+//        view.addSubview(lastNameField)
         view.addSubview(usernameLabel)
         view.addSubview(usernameField)
         view.addSubview(usernameInfoLabel)
@@ -253,12 +293,22 @@ class RegistrationViewController: UIViewController {
         view.addSubview(registerButton)
         view.addSubview(signInLabel)
         view.addSubview(signInButton)
+    }
+    
+    private func addButtonActions() {
+        signInButton.addTarget(self,
+                               action: #selector(didTapSignInButton),
+                               for: .touchUpInside)
         
-        view.backgroundColor = .systemBackground
-        // Do any additional setup after loading the view.
-        
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(didTapCheckbox))
-        checkbox.addGestureRecognizer(gesture)
+    }
+    
+    @objc private func didTapSignInButton() {
+        let vc = LoginViewController()
+//        vc.title = "Create Account"
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
+//        present(UINavigationController(rootViewController: vc), animated: true)
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     override func viewDidLayoutSubviews() {
@@ -267,11 +317,13 @@ class RegistrationViewController: UIViewController {
         createAccount.frame = CGRect(x: 24, y: view.safeAreaInsets.top + 76, width: view.width - 40, height: 40)
         emailLabel.frame = CGRect(x: 24, y: createAccount.bottom + 36, width: view.width - 40, height: 15)
         emailField.frame = CGRect(x: 24, y: emailLabel.bottom + 8, width: view.width - 40, height: 25)
-        firstNameLabel.frame = CGRect(x: 24, y: emailField.bottom + 24, width: view.width - 40, height: 15)
-        firstNameField.frame = CGRect(x: 24, y: firstNameLabel.bottom + 8, width: view.width - 40, height: 25)
-        lastNameLabel.frame = CGRect(x: 24, y: firstNameField.bottom + 24, width: view.width - 40, height: 15)
-        lastNameField.frame = CGRect(x: 24, y: lastNameLabel.bottom + 8, width: view.width - 40, height: 25)
-        usernameLabel.frame = CGRect(x: 24, y: lastNameField.bottom + 24, width: view.width - 40, height: 15)
+        nameLabel.frame = CGRect(x: 24, y: emailField.bottom + 24, width: view.width - 40, height: 15)
+        nameField.frame = CGRect(x: 24, y: nameLabel.bottom + 8, width: view.width - 40, height: 25)
+//        firstNameLabel.frame = CGRect(x: 24, y: emailField.bottom + 24, width: view.width - 40, height: 15)
+//        firstNameField.frame = CGRect(x: 24, y: firstNameLabel.bottom + 8, width: view.width - 40, height: 25)
+//        lastNameLabel.frame = CGRect(x: 24, y: firstNameField.bottom + 24, width: view.width - 40, height: 15)
+//        lastNameField.frame = CGRect(x: 24, y: lastNameLabel.bottom + 8, width: view.width - 40, height: 25)
+        usernameLabel.frame = CGRect(x: 24, y: nameField.bottom + 24, width: view.width - 40, height: 15)
         usernameField.frame = CGRect(x: 24, y: usernameLabel.bottom + 8, width: view.width - 40, height: 25)
         usernameInfoLabel.frame = CGRect(x: 24, y: usernameField.bottom + 4, width: view.width - 40, height: 15)
         passwordLabel.frame = CGRect(x: 24, y: usernameInfoLabel.bottom + 24, width: view.width - 40, height: 15)
@@ -287,21 +339,23 @@ class RegistrationViewController: UIViewController {
     
     @objc private func didTapRegister() {
         emailField.resignFirstResponder()
-        firstNameField.resignFirstResponder()
-        lastNameField.resignFirstResponder()
+        nameField.resignFirstResponder()
+//        firstNameField.resignFirstResponder()
+//        lastNameField.resignFirstResponder()
         usernameField.resignFirstResponder()
         passwordField.resignFirstResponder()
         
         guard let email = emailField.text, !email.isEmpty,
-              let firstName = emailField.text, !email.isEmpty,
-              let lastName = emailField.text, !email.isEmpty,
+              let name = nameField.text, !name.isEmpty,
+//              let firstName = firstNameField.text, !firstNameField.isEmpty,
+//              let lastName = lastNameField.text, !lastNameField.isEmpty,
               let password = passwordField.text, !password.isEmpty, password.count >= 8,
               let confirm = confirmField.text, !confirm.isEmpty, confirm == password,
               let username = usernameField.text, !username.isEmpty else {
                 return
         }
         
-        AuthManager.shared.registerNewUser(firstName: firstName, lastName: lastName, username: username, email: email, password: password) { registered in
+        AuthManager.shared.registerNewUser(name: name, username: username, email: email, password: password) { registered in
             DispatchQueue.main.async {
                 if registered {
                     //succeeded
