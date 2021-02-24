@@ -34,7 +34,7 @@ class ProfileTabsCollectionReusableView: UICollectionReusableView {
         let button = UIButton()
         button.clipsToBounds = true
         button.tintColor = .lightGray
-        button.setBackgroundImage(UIImage(systemName: "tag"), for: .normal)
+        button.setBackgroundImage(UIImage(systemName: "camera"), for: .normal)
         
         return button
     }()

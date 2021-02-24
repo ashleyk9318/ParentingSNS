@@ -39,14 +39,14 @@ final class ProfileInfoHeaderCollectionReusableView: UICollectionReusableView {
         return label
     }()
     
-    private let locationLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Milpitas, CA"
-        label.font = UIFont(name: "CircularStd-Black", size: 16)
-        label.textColor = .lightGray
-        label.numberOfLines = 0 // line wrap
-        return label
-    }()
+//    private let locationLabel: UILabel = {
+//        let label = UILabel()
+//        label.text = "Milpitas, CA"
+//        label.font = UIFont(name: "CircularStd-Black", size: 16)
+//        label.textColor = .lightGray
+//        label.numberOfLines = 0 // line wrap
+//        return label
+//    }()
     
 //    private let postsLabel: UILabel = {
 //        let label = UILabel()
@@ -75,11 +75,38 @@ final class ProfileInfoHeaderCollectionReusableView: UICollectionReusableView {
 //        return label
 //    }()
     
+    private let postNum: UILabel = {
+        let label = UILabel()
+        label.text = "3"
+        label.textColor = .label
+        label.font = .circularBold(size: 16)
+        label.numberOfLines = 1
+        return label
+    }()
+    
+    private let followerNum: UILabel = {
+        let label = UILabel()
+        label.text = "32"
+        label.textColor = .label
+        label.font = .circularBold(size: 16)
+        label.numberOfLines = 1
+        return label
+    }()
+    
+    private let followingNum: UILabel = {
+        let label = UILabel()
+        label.text = "894"
+        label.textColor = .label
+        label.font = .circularBold(size: 16)
+        label.numberOfLines = 1
+        return label
+    }()
+    
     private let postsButton: UIButton = {
         let button = UIButton()
         button.setTitle("Posts", for: .normal)
-        button.setTitleColor(.systemGray, for: .normal)
-        button.titleLabel?.font = UIFont(name: "CircularStd-Black", size: 12)
+        button.setTitleColor(.warmGrey(), for: .normal)
+        button.titleLabel?.font = .circularBook(size: 12)
 //        button.backgroundColor = .secondarySystemBackground
         return button
     }()
@@ -87,8 +114,8 @@ final class ProfileInfoHeaderCollectionReusableView: UICollectionReusableView {
     private let followersButton: UIButton = {
         let button = UIButton()
         button.setTitle("Followers", for: .normal)
-        button.setTitleColor(.systemGray, for: .normal)
-        button.titleLabel?.font = UIFont(name: "CircularStd-Black", size: 12)
+        button.setTitleColor(.warmGrey(), for: .normal)
+        button.titleLabel?.font = .circularBook(size: 12)
 //        button.backgroundColor = .secondarySystemBackground
         return button
     }()
@@ -96,8 +123,8 @@ final class ProfileInfoHeaderCollectionReusableView: UICollectionReusableView {
     private let followingButton: UIButton = {
         let button = UIButton()
         button.setTitle("Following", for: .normal)
-        button.setTitleColor(.systemGray, for: .normal)
-        button.titleLabel?.font = UIFont(name: "CircularStd-Black", size: 12)
+        button.setTitleColor(.warmGrey(), for: .normal)
+        button.titleLabel?.font = .circularBook(size: 12)
 //        button.backgroundColor = .secondarySystemBackground
         return button
     }()
@@ -106,12 +133,28 @@ final class ProfileInfoHeaderCollectionReusableView: UICollectionReusableView {
         let button = UIButton()
         button.setTitle("Edit Profile", for: .normal)
         button.setTitleColor(.label, for: .normal)
+        button.titleLabel?.font = .circularBook(size: 16)
 //        button.backgroundColor = .secondarySystemBackground
         button.layer.masksToBounds = true
         button.layer.cornerRadius = Constants.cornerRadius
 //        button.backgroundColor = .secondarySystemBackground
         button.layer.borderWidth = 1.0
-        button.layer.borderColor = UIColor.lightGray.cgColor
+        button.layer.borderColor = UIColor.pinkishGrey().cgColor
+//        button.layer.borderColor = UIColor.secondaryLabel.cgColor
+        return button
+    }()
+    
+    private let listButton: UIButton = {
+        let button = UIButton()
+//        button.setTitle("List", for: .normal)
+        button.layer.masksToBounds = true
+        button.layer.cornerRadius = Constants.cornerRadius
+        button.tintColor = .label
+//        button.setBackgroundImage(UIImage(systemName: "list.bullet"), for: .normal)
+        button.setImage(UIImage(systemName: "list.bullet"), for: .normal)
+//        button.backgroundColor = .secondarySystemBackground
+        button.layer.borderWidth = 1.0
+        button.layer.borderColor = UIColor.pinkishGrey().cgColor
 //        button.layer.borderColor = UIColor.secondaryLabel.cgColor
         return button
     }()
@@ -119,8 +162,8 @@ final class ProfileInfoHeaderCollectionReusableView: UICollectionReusableView {
     private let bioTitle: UILabel = {
         let label = UILabel()
         label.text = "About me"
-        label.font = UIFont(name: "CircularStd-Black", size: 14)
         label.textColor = .label
+        label.font = .circularBold(size: 14)
         label.numberOfLines = 1
         return label
     }()
@@ -128,8 +171,8 @@ final class ProfileInfoHeaderCollectionReusableView: UICollectionReusableView {
     private let bioLabel: UILabel = {
         let label = UILabel()
         label.text = "I just got married. I got married at a fairly young age, and no one has experience of marriage or giving birth among my friends. Please share more tips with me!"
-        label.font = UIFont(name: "CircularStd-Black", size: 14)
-        label.textColor = .gray
+        label.font = .circularBook(size: 14)
+        label.textColor = .greyishBrown()
         label.numberOfLines = 0 // line wrap
         return label
     }()
@@ -148,14 +191,18 @@ final class ProfileInfoHeaderCollectionReusableView: UICollectionReusableView {
         
         addSubview(profilePhotoImageView)
         addSubview(nameLabel)
-        addSubview(locationLabel)
+//        addSubview(locationLabel)
 //        addSubview(postsLabel)
 //        addSubview(followingLabel)
 //        addSubview(followersLabel)
+        addSubview(postNum)
+        addSubview(followerNum)
+        addSubview(followingNum)
         addSubview(postsButton)
         addSubview(followingButton)
         addSubview(followersButton)
         addSubview(editProfileButton)
+        addSubview(listButton)
         addSubview(bioTitle)
         addSubview(bioLabel)
         
@@ -174,6 +221,10 @@ final class ProfileInfoHeaderCollectionReusableView: UICollectionReusableView {
         editProfileButton.addTarget(self,
                                     action: #selector(didTapEditProfileButton),
                                     for: .touchUpInside)
+        listButton.addTarget(self,
+                             action: #selector(didTapListButton),
+                             for: .touchUpInside)
+        
     }
   
     
@@ -186,7 +237,7 @@ final class ProfileInfoHeaderCollectionReusableView: UICollectionReusableView {
             
         let profilePhotoSize = width / 5
         profilePhotoImageView.frame = CGRect(x: (width - profilePhotoSize) / 2,
-                                             y: 24,
+                                             y: safeAreaInsets.top + 24,
                                              width: profilePhotoSize,
                                              height: profilePhotoSize).integral
         
@@ -199,14 +250,14 @@ final class ProfileInfoHeaderCollectionReusableView: UICollectionReusableView {
                                  width: labelWidth,
                                  height: 20).integral
         
-        locationLabel.frame = CGRect(x: width / 3 + 15,
-                                     y: nameLabel.bottom + 8,
-                                     width: labelWidth,
-                                     height: 16).integral
+//        locationLabel.frame = CGRect(x: width / 3 + 15,
+//                                     y: nameLabel.bottom + 8,
+//                                     width: labelWidth,
+//                                     height: 16).integral
         
 //        let buttonHeight = profilePhotoSize / 2
 //        let countButtonWidth = (width - 10 - profilePhotoSize) / 3
-        let buttonHeight = CGFloat(40)
+        let buttonHeight = CGFloat(15)
         let countButtonWidth = CGFloat(72)
   
 //        postsLabel.frame = CGRect(x: (width - countButtonWidth*3 - 24*2) / 2,
@@ -223,26 +274,49 @@ final class ProfileInfoHeaderCollectionReusableView: UICollectionReusableView {
 //                                      y: locationLabel.bottom + 24,
 //                                      width: countButtonWidth,
 //                                      height: buttonHeight).integral
-        
+                
         postsButton.frame = CGRect(x: (width - countButtonWidth*3 - 24*2) / 2,
-                                   y: locationLabel.bottom + 24,
+                                   y: nameLabel.bottom + 49,
                                    width: countButtonWidth,
                                    height: buttonHeight).integral
 
         followersButton.frame = CGRect(x: postsButton.right + 24,
-                                       y: locationLabel.bottom + 24,
+                                       y: nameLabel.bottom + 49,
                                        width: countButtonWidth,
                                        height: buttonHeight).integral
 
         followingButton.frame = CGRect(x: followersButton.right + 24,
-                                       y: locationLabel.bottom + 24,
+                                       y: nameLabel.bottom + 49,
                                        width: countButtonWidth,
                                        height: buttonHeight).integral
+        
+        let numWidth = CGFloat(34)
+        let numHeight = CGFloat(21)
+        
+        postNum.frame = CGRect(x: postsButton.left + (countButtonWidth / 2) - 5,
+                               y: nameLabel.bottom + 24,
+                               width: countButtonWidth,
+                               height: numHeight).integral
+        
+        followerNum.frame = CGRect(x: followersButton.left + (countButtonWidth / 2) - 15,
+                                   y: nameLabel.bottom + 24,
+                                   width: countButtonWidth,
+                                   height: numHeight).integral
+        
+        followingNum.frame = CGRect(x: followingButton.left + (countButtonWidth / 2) - 15,
+                                   y: nameLabel.bottom + 24,
+                                   width: countButtonWidth,
+                                   height: numHeight).integral
 
         editProfileButton.frame = CGRect(x: 24,
                                          y: postsButton.bottom + 24,
-                                         width: width - 48,
+                                         width: width - 48 - 42 - 8,
                                          height: 36).integral
+        
+        listButton.frame = CGRect(x: editProfileButton.right + 8,
+                                  y: postsButton.bottom + 24,
+                                  width: 42,
+                                  height: 36).integral
 
         let bioLabelSize = bioLabel.sizeThatFits(frame.size)
 
@@ -275,6 +349,10 @@ final class ProfileInfoHeaderCollectionReusableView: UICollectionReusableView {
     }
     
     @objc private func didTapEditProfileButton() {
+        delegate?.profileHeaderDidTapEditProfileButton(self)
+    }
+    
+    @objc private func didTapListButton() {
         delegate?.profileHeaderDidTapEditProfileButton(self)
     }
 }

@@ -177,9 +177,11 @@ class LoginViewController: UIViewController {
         
         // Add logo
 //        let imageView = UIImageView(image: UIImage(named: "text"))
-        let imageView = UIImageView(image: UIImage(named: "example2"))
+        let imageView = UIImageView(image: UIImage(named: "mamaland"))
         headerView.addSubview(imageView)
         imageView.contentMode = .scaleAspectFit
+        imageView.layer.masksToBounds = true
+        imageView.layer.cornerRadius = Constants.cornerRadius
         imageView.frame = CGRect(x: headerView.width/4.0,
                                  y: view.safeAreaInsets.top,
                                  width: headerView.width/2.0,
@@ -262,6 +264,7 @@ class LoginViewController: UIViewController {
         present(vc, animated: true)
 //        present(UINavigationController(rootViewController: vc), animated: true)
         navigationController?.pushViewController(vc, animated: true)
+        
     }
 
 }

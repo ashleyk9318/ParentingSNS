@@ -33,6 +33,13 @@
 		6571578725A3A60000216D25 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6571578625A3A60000216D25 /* SearchResultViewController.swift */; };
 		6571578A25A3A62E00216D25 /* PostEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6571578925A3A62E00216D25 /* PostEditorViewController.swift */; };
 		6571578D25A3A63D00216D25 /* PublishPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6571578C25A3A63D00216D25 /* PublishPostViewController.swift */; };
+		65D2E57925DEF4EC009CBBFE /* CircularStd-BlackItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 65D2E57825DEF4EB009CBBFE /* CircularStd-BlackItalic.otf */; };
+		65D2E58025DEF70C009CBBFE /* CircularStd-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 65D2E57F25DEF70C009CBBFE /* CircularStd-Bold.otf */; };
+		65D2E58325DEF717009CBBFE /* CircularStd-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 65D2E58225DEF717009CBBFE /* CircularStd-BoldItalic.otf */; };
+		65D2E58625DEF71F009CBBFE /* CircularStd-Book.otf in Resources */ = {isa = PBXBuildFile; fileRef = 65D2E58525DEF71F009CBBFE /* CircularStd-Book.otf */; };
+		65D2E58925DEF728009CBBFE /* CircularStd-BookItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 65D2E58825DEF728009CBBFE /* CircularStd-BookItalic.otf */; };
+		65D2E58C25DEF732009CBBFE /* CircularStd-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 65D2E58B25DEF732009CBBFE /* CircularStd-Medium.otf */; };
+		65D2E58F25DEF739009CBBFE /* CircularStd-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 65D2E58E25DEF739009CBBFE /* CircularStd-MediumItalic.otf */; };
 		65E1C36025B10C3D00B74278 /* FeedPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E1C35F25B10C3D00B74278 /* FeedPostTableViewCell.swift */; };
 		65E1C36425B3FA3600B74278 /* FeedPostHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E1C36325B3FA3600B74278 /* FeedPostHeaderTableViewCell.swift */; };
 		65E1C36725B3FA4C00B74278 /* FeedPostActionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E1C36625B3FA4C00B74278 /* FeedPostActionTableViewCell.swift */; };
@@ -81,6 +88,13 @@
 		6571578625A3A60000216D25 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		6571578925A3A62E00216D25 /* PostEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostEditorViewController.swift; sourceTree = "<group>"; };
 		6571578C25A3A63D00216D25 /* PublishPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishPostViewController.swift; sourceTree = "<group>"; };
+		65D2E57825DEF4EB009CBBFE /* CircularStd-BlackItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CircularStd-BlackItalic.otf"; sourceTree = "<group>"; };
+		65D2E57F25DEF70C009CBBFE /* CircularStd-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CircularStd-Bold.otf"; sourceTree = "<group>"; };
+		65D2E58225DEF717009CBBFE /* CircularStd-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CircularStd-BoldItalic.otf"; sourceTree = "<group>"; };
+		65D2E58525DEF71F009CBBFE /* CircularStd-Book.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CircularStd-Book.otf"; sourceTree = "<group>"; };
+		65D2E58825DEF728009CBBFE /* CircularStd-BookItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CircularStd-BookItalic.otf"; sourceTree = "<group>"; };
+		65D2E58B25DEF732009CBBFE /* CircularStd-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CircularStd-Medium.otf"; sourceTree = "<group>"; };
+		65D2E58E25DEF739009CBBFE /* CircularStd-MediumItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CircularStd-MediumItalic.otf"; sourceTree = "<group>"; };
 		65E1C35F25B10C3D00B74278 /* FeedPostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPostTableViewCell.swift; sourceTree = "<group>"; };
 		65E1C36325B3FA3600B74278 /* FeedPostHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPostHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		65E1C36625B3FA4C00B74278 /* FeedPostActionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPostActionTableViewCell.swift; sourceTree = "<group>"; };
@@ -189,6 +203,13 @@
 			children = (
 				654DBEC125AA8E5D00BFBB90 /* GoogleService-Info.plist */,
 				65E1C39225BCEF0700B74278 /* CircularStd-Black.ttf */,
+				65D2E57825DEF4EB009CBBFE /* CircularStd-BlackItalic.otf */,
+				65D2E57F25DEF70C009CBBFE /* CircularStd-Bold.otf */,
+				65D2E58225DEF717009CBBFE /* CircularStd-BoldItalic.otf */,
+				65D2E58525DEF71F009CBBFE /* CircularStd-Book.otf */,
+				65D2E58825DEF728009CBBFE /* CircularStd-BookItalic.otf */,
+				65D2E58B25DEF732009CBBFE /* CircularStd-Medium.otf */,
+				65D2E58E25DEF739009CBBFE /* CircularStd-MediumItalic.otf */,
 				6571574725A3A28C00216D25 /* AppDelegate.swift */,
 				6571574925A3A28C00216D25 /* SceneDelegate.swift */,
 				654DBEB425A6C85400BFBB90 /* DatabaseManager.swift */,
@@ -357,10 +378,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				6571575425A3A28E00216D25 /* LaunchScreen.storyboard in Resources */,
+				65D2E58625DEF71F009CBBFE /* CircularStd-Book.otf in Resources */,
 				654DBEC225AA8E5D00BFBB90 /* GoogleService-Info.plist in Resources */,
 				6571575125A3A28E00216D25 /* Assets.xcassets in Resources */,
 				6571574F25A3A28C00216D25 /* Main.storyboard in Resources */,
+				65D2E58925DEF728009CBBFE /* CircularStd-BookItalic.otf in Resources */,
+				65D2E57925DEF4EC009CBBFE /* CircularStd-BlackItalic.otf in Resources */,
+				65D2E58F25DEF739009CBBFE /* CircularStd-MediumItalic.otf in Resources */,
+				65D2E58325DEF717009CBBFE /* CircularStd-BoldItalic.otf in Resources */,
 				65E1C39325BCEF0700B74278 /* CircularStd-Black.ttf in Resources */,
+				65D2E58025DEF70C009CBBFE /* CircularStd-Bold.otf in Resources */,
+				65D2E58C25DEF732009CBBFE /* CircularStd-Medium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
