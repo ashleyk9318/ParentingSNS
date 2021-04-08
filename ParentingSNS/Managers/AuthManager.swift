@@ -13,7 +13,7 @@ public class AuthManager {
     
     // MARK: - Public
     
-    public func registerNewUser(name: String, username: String, email: String, password: String, completion: @escaping (Bool) -> Void) {
+    public func registerNewUser(username: String, email: String, password: String, completion: @escaping (Bool) -> Void) {
         /*
          - check if username is available
          - check if email is available
@@ -29,6 +29,7 @@ public class AuthManager {
                     guard error == nil, result != nil else {
                         // Firebase auth could not create account
                         completion(false)
+                        print("Error creating user")
                         return
                     }
                     
@@ -40,6 +41,7 @@ public class AuthManager {
                         }
                         else {
                             completion(false)
+                            print("Error creating user")
                             return
                         }
                     }
@@ -65,6 +67,7 @@ public class AuthManager {
         }
         else if let username = username {
             // username log in
+            
             print(username)
         }
     }
